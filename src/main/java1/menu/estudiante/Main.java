@@ -6,9 +6,32 @@ public class Main {
 
 	public static void main(String[] args) {
 		Scanner teclado = new Scanner(System.in);
+		int opcion;
+		String cedula = "";
+		String cedulaABuscar;
+		int posicionGuardada = 0;
+		
+		Estudiante estudiante1 = new Estudiante();
+		estudiante1.setCedula(cedula);
 
-		String vector[] = new String[5];
-		int opcion = 0;
+		Estudiante estudiante2 = new Estudiante();
+		estudiante2.setCedula(cedula);
+
+		Estudiante estudiante3 = new Estudiante();
+		estudiante3.setCedula(cedula);
+
+		Estudiante estudiante4 = new Estudiante();
+		estudiante4.setCedula(cedula);
+
+		Estudiante estudiante5 = new Estudiante();
+		estudiante5.setCedula(cedula);
+
+		Estudiante fila[] = new Estudiante[5];
+		fila[0] = estudiante1;
+		fila[1] = estudiante2;
+		fila[2] = estudiante3;
+		fila[3] = estudiante4;
+		fila[4] = estudiante5;
 		do {
 			System.out.println("****************************************");
 			System.out.println("1. Ingresar Estudiante");
@@ -18,49 +41,25 @@ public class Main {
 			opcion = teclado.nextInt();
 
 			if (opcion == 1) {
-				System.out.println("Ingrese el numero de cédula del estudiante 1: ");
-				String cedula0 = teclado.next();
-				System.out.println("Ingrese el numero de cédula del estudiante 2: ");
-				String cedula1 = teclado.next();
-				System.out.println("Ingrese el numero de cédula del estudiante 3: ");
-				String cedula2 = teclado.next();
-				System.out.println("Ingrese el numero de cédula del estudiante 4: ");
-				String cedula3 = teclado.next();
-				System.out.println("Ingrese el numero de cedula del estudiante 5: ");
-				String cedula4 = teclado.next();
-				vector[0] = cedula0;
-				vector[1] = cedula1;
-				vector[2] = cedula2;
-				vector[3] = cedula3;
-				vector[4] = cedula4;
+				System.out.println("Ingrese el numero de cédula del estudiante: ");
+				cedula = teclado.next();
+				fila[posicionGuardada] = estudiante1;
+				posicionGuardada = posicionGuardada++;
 			} else if (opcion == 2) {
 				System.out.println("Ingrese el numero de cédula del estudiante a buscar: ");
-				String cedula = teclado.next();
-				boolean res = vector[0].equals(cedula);
-				if (res == true) {
-					System.out.println("El estudiante esta en la lista ");
+				cedulaABuscar = teclado.next();
+				for (int i = 0; i < 5; i++) {
+					estudiante1 = fila[i];
+					cedula = estudiante1.getCedula();
 				}
-				res = vector[1].equals(cedula);
-				if (res == true) {
-					System.out.println("El estudiante esta en la lista: ");
-				}
-				res = vector[2].equals(cedula);
-				if (res == true) {
-					System.out.println("El estudiante esta en la lista: ");
-				}
-				res = vector[3].equals(cedula);
-				if (res == true) {
-					System.out.println("El estudiante esta en la lista: ");
-				}
-				res = vector[4].equals(cedula);
-				if (res == true) {
-					System.out.println("El estudiante esta en la lista: ");
-				}else{
-					System.out.println("El estudiante no esta en la lista: ");
+				boolean resultado = cedulaABuscar.equals(cedula);
+				if (resultado == true) {
+					System.out.println("Contiene al Estudiante: ");
+				} else {
+					System.out.println("No contiene al Estudiante: ");
 				}
 
 			}
 		} while (opcion != 3);
 	}
-
 }
