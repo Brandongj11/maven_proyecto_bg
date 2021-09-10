@@ -10,7 +10,7 @@ public class Main {
 		String cedula = "";
 		String cedulaABuscar;
 		int posicionGuardada = 0;
-		
+
 		Estudiante estudiante1 = new Estudiante();
 		estudiante1.setCedula(cedula);
 
@@ -49,16 +49,15 @@ public class Main {
 				System.out.println("Ingrese el numero de cédula del estudiante a buscar: ");
 				cedulaABuscar = teclado.next();
 				for (int i = 0; i < 5; i++) {
-					estudiante1 = fila[i];
-					cedula = estudiante1.getCedula();
+					Estudiante estudiante = fila[i];
+					cedula = estudiante.getCedula();
+					boolean resultado = cedulaABuscar.equals(cedula);
+					if (resultado == true) {
+						System.out.println("Contiene al Estudiante: ");
+					} else {
+						System.out.println("No contiene al Estudiante: ");
+					}
 				}
-				boolean resultado = cedulaABuscar.equals(cedula);
-				if (resultado == true) {
-					System.out.println("Contiene al Estudiante: ");
-				} else {
-					System.out.println("No contiene al Estudiante: ");
-				}
-
 			}
 		} while (opcion != 3);
 	}
